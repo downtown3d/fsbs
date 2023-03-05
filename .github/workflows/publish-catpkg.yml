@@ -10,3 +10,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: BSData/publish-catpkg@v1
+with:
+        # GitHub OAuth token to authorize API requests for upload of assets
+        # (and deletion of existing duplicates)
+        # Default: github.token
+        token: 'github.token'
+        
+        # Path to a 'staging' folder where assets will be saved before upload
+        # Default: runner.temp/assets
+        staging-path: 'runner.temp/assets'
+
+        # Hypermedia URL to upload assets to, as retrieved from releases API
+        # Default: github.event.release.upload_url
+        upload-url: 'github.event.release.upload_url'
